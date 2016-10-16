@@ -22,7 +22,7 @@ interface IAuthResponse {
 export const loginWithToken = (token: string) => {
     return function(dispatch) {
         dispatch(beginAjaxCall());
-        return authApi.loginWithToken(token).then((response: IAuthResponse) => {
+        return authApi.loginWithToken(token).then((response:IAuthResponse) => {
             dispatch(loginSuccess(response.data));
         }).catch(error => {
             dispatch(ajaxCallError());

@@ -1,6 +1,7 @@
 /// <reference path="globals/chai/index.d.ts" />
 /// <reference path="globals/chalk/index.d.ts" />
 /// <reference path="globals/enzyme/index.d.ts" />
+/// <reference path="globals/material-ui/index.d.ts" />
 /// <reference path="globals/mocha/index.d.ts" />
 /// <reference path="globals/node/index.d.ts" />
 /// <reference path="globals/object-assign/index.d.ts" />

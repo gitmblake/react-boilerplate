@@ -2,24 +2,30 @@ import React from "react";
 import { connect } from "react-redux";
 import { LoginPage } from "../components/login/LoginPage";
 import { bindActionCreators } from "redux";
-import { login } from "../actions/loginActions";
+import { login } from "../actions/authActions";
 
-interface ILoginProps {
-    actions()
+interface IActions {
+    login(username: string, password: string, redirect: string)
 }
 
-class Login extends React.Component<any, any> {
+interface ILoginProps {
+    actions: IActions,
+    location: any
+}
+
+class Login extends React.Component<ILoginProps, any> {
     constructor(props, context) {
         super(props, context);
     }
 
     login = (username: string, password: string) => {
-        
+        const redirect = this.props.location.query.next;
+        this.props.actions.login(username, password, redirect);
     }
 
     render() {
         return (
-            <LoginPage />
+            <LoginPage handleLogin={this.login}/>
         );
     }
 }
@@ -32,7 +38,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        actions: bindActionCreators(login, dispatch)
+        actions: bindActionCreators( { login }, dispatch)
     }
 }
 

@@ -14,5 +14,6 @@
 /// <reference path="globals/redux-immutable-state-invariant/index.d.ts" />
 /// <reference path="globals/redux-logger/index.d.ts" />
 /// <reference path="globals/redux-promise-middleware/index.d.ts" />
+/// <reference path="globals/redux-promise/index.d.ts" />
 /// <reference path="globals/redux-thunk/index.d.ts" />
 /// <reference path="globals/redux/index.d.ts" />

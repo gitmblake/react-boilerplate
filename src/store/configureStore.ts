@@ -11,13 +11,13 @@ import { routerMiddleware } from 'react-router-redux';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 
 import thunk from 'redux-thunk';
-import promise from "redux-promise-middleware";
+import promiseMiddleware from "redux-promise";
 import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
 
 declare const __DEV__: boolean; // from webpack
 
-const logger = createLogger();
+const logger = createLogger({collapsed:true});
 const environment: any = window || this;
 
 function configureStore() {
@@ -37,7 +37,7 @@ function configureStore() {
 const getMiddleware = () : Middleware[] => {
   let middleware = [
     routerMiddleware(browserHistory),
-    promise(),
+    promiseMiddleware,
     thunk,
   ];
 

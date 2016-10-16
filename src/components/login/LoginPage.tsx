@@ -1,29 +1,49 @@
 import React from "react";
 
-export class LoginPage extends React.Component<any, any> {
+interface ILoginPageProps {
+    handleLogin(username: string, password: string)
+}
+
+interface ILoginPageState {
+    username?: string,
+    password?: string
+}
+
+export class LoginPage extends React.Component<ILoginPageProps, ILoginPageState> {
     constructor(props) {
         super(props);
         this.state = {
-            user: '',
+            username: '',
             password: ''
         }
     }
 
     login = (e) => {
-        e.preventDefault;
+        e.preventDefault();
+        this.props.handleLogin(this.state.username, this.state.password);
+    }
 
+    handleUsernameChange = (e) => {
+        this.setState({
+            username: e.target.value
+        });
+    }
 
+    handlePasswordChange = (e) => {
+        this.setState({
+            password: e.target.value
+        });
     }
 
     render() {
         return (
-            <form>
+            <div>
                 <div>
-                    <input type="text" value={this.state.user} placeholder="Username" />
-                    <input type="password" value={this.state.password} placeholder="Password" />
+                    <input type="text" value={this.state.username} placeholder="Username" onChange={this.handleUsernameChange} />
+                    <input type="password" value={this.state.password} placeholder="Password" onChange={this.handlePasswordChange} />
                 </div>
                 <button type="submit" onClick={this.login}>Submit</button>
-            </form>
+            </div>
         );
     }
 };

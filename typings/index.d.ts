@@ -11,6 +11,7 @@
 /// <reference path="globals/react-router-redux/index.d.ts" />
 /// <reference path="globals/react-router/history/index.d.ts" />
 /// <reference path="globals/react-router/index.d.ts" />
+/// <reference path="globals/react-tap-event-plugin/index.d.ts" />
 /// <reference path="globals/react/index.d.ts" />
 /// <reference path="globals/redux-immutable-state-invariant/index.d.ts" />
 /// <reference path="globals/redux-logger/index.d.ts" />
